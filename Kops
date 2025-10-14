@@ -21,11 +21,11 @@ wget https://github.com/kubernetes/kops/releases/download/v1.32.0/kops-linux-amd
 chmod +x kops-linux-amd64 kubectl
 mv kubectl /usr/local/bin/kubectl
 mv kops-linux-amd64 /usr/local/bin/kops
-aws s3api create-bucket --bucket melissa-kops-testbkt1433.k8s.local --region eu-west-2 --create-bucket-configuration LocationConstraint=eu-west-2
-aws s3api put-bucket-versioning --bucket melissa-kops-testbkt1433.k8s.local --region eu-west-2a --versioning-configuration Status=Enabled
-export KOPS_STATE_STORE=s3://melissa-kops-testbkt1433.k8s.local
-kops create cluster --name=melanie.k8s.local --zones=eu-west-2a --control-plane-count=1 --control-plane-size=t3.medium --node-count=2 --node-size=t3.small --node-volume-size=20 --control-plane-volume-size=20 --ssh-public-key=my-keypair.pub --image=ami-046c2381f11878233 --networking=calico
-kops update cluster --name melanie.k8s.local --yes --admin
+aws s3api create-bucket --bucket melissa-kops-test.k8s.local --region eu-west-2 --create-bucket-configuration LocationConstraint=eu-west-2
+aws s3api put-bucket-versioning --bucket melissa-kops-test.k8s.local --region eu-west-2 --versioning-configuration Status=Enabled
+export KOPS_STATE_STORE=s3://melissa-kops-test.k8s.local
+kops create cluster --name=marc.k8s.local --zones=eu-west-2a --control-plane-count=1 --control-plane-size=t3.medium --node-count=2 --node-size=t3.small --node-volume-size=20 --control-plane-volume-size=20 --ssh-public-key=my-keypair.pub --image=ami-046c2381f11878233 --networking=calico
+kops update cluster --name marc.k8s.local --yes --admin
 
 
 wq!

@@ -30,7 +30,7 @@ kops update cluster --name melanie.k8s.local --yes --admin
 
 wq!
 
-export KOPS_STATE_STORE=s3://melissa-kops-testbkt1433.k8s.local
+export KOPS_STATE_STORE=s3://melissa-kops-test.k8s.local
 kops validate cluster --wait 10m
 
 
